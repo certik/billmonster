@@ -29,22 +29,24 @@ def main():
 
     # Init the WebDriver.
     browser = webdriver.Firefox()
+    try:
 
-    for account in config._sections:
+        for account in config._sections:
 
-        # Grab the provider and the usernames.
-        provider = account
-        usernames = config._sections[account]['users']
-        usernames = [x.strip() for x in usernames.split(',')]
+            # Grab the provider and the usernames.
+            provider = account
+            usernames = config._sections[account]['users']
+            usernames = [x.strip() for x in usernames.split(',')]
 
-        index = 0
+            index = 0
 
-        # Run the script for each account user.
-        for user in usernames:
-            PROVIDERS[provider](user, False, browser, index)
-            index = index + 1
+            # Run the script for each account user.
+            for user in usernames:
+                PROVIDERS[provider](user, False, browser, index)
+                index = index + 1
 
-    browser.quit()
+    finally:
+        browser.quit()
 
 
 # Helper function to check whether an element exists yet on the page.
