@@ -8,7 +8,8 @@ from selenium import webdriver
 
 from billmonster import _element_available
 
-from clint import args
+from clint.arguments import Args
+args = Args()
 from clint.textui import colored, puts
 
 import keyring, os, sys
