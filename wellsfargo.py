@@ -13,7 +13,7 @@ from clint.textui import colored, puts
 import keyring, sys
 
 
-def wellsfargo(user=None, quit_when_finished=True, browser=None):
+def wellsfargo(user=None, quit_when_finished=True, browser=None, index=None):
 
     if not user:
         # Get the username from the command line arguments.
